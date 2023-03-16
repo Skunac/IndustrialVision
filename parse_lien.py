@@ -6,7 +6,7 @@ folder_dir = "/home/jonathan/Documents/vdd/donnees_projet_vdd/Nouveau dossier/do
 image = ""
 monoutput = ""
 
-f = open("output.csv", "w")
+f = open("data_link_output_img.csv", "w")
 
 for file in os.listdir(folder_dir):
 
@@ -22,22 +22,21 @@ for file in os.listdir(folder_dir):
             image = key.strip(".jpg")
             image = image + ".txt"
 
-    with open("keypoint_label_data.csv", "r", newline="") as file:
+    with open("keypoints_labels_data.csv", "r", newline="") as file:
         reader = csv.reader(file, delimiter=",")
         for row in reader:
 
             if row[0] == monoutput:
                
                 f.write(image + " " + ",".join(row))
-#                f.write("\n")
 
-    with open("injured_label.csv", "r", newline="") as file2:
+    with open("injured_labels_data.csv", "r", newline="") as file2:
         reader2 = csv.reader(file2, delimiter=",")
         for row in reader2:
 
             if row[0] == image:
 
-                f.write("," + ",".join(row))
+                f.write("," + ",".join(row[1:]))
     f.write("\n")        
 
 f.close()
