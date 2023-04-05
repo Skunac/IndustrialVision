@@ -17,3 +17,4 @@ for i, row in df.iterrows():
     middleY[i] = middlePoint(row['vy11'], row['vy12'])
 
 print(middleX)
+
