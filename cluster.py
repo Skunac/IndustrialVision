@@ -19,11 +19,16 @@ for i, row in df.iterrows():
 
 #print(middleX)
 
+
+df2 = pd.read_csv("data_link_output_img_xy_only.csv", usecols=all, sep=',')
+
+
 for i in range(1,20):
     pointToCompare = (middleX[i],middleY[i])
     minDistance = math.inf
     closestSet = None
-    for index, row in df.iterrows():
-        xValues = [float(row[f'x{i}']) for i in range(1, 21)]
-        yValues = [float(row[f'y{i}']) for i in range(1, 21)]
+
+    for index, row in df2.iterrows():
+        xValues = [float(row[f'x{k}']) for k in range(0, 10)]
+        yValues = [float(row[f'y{k}']) for k in range(0, 10)]
         currentPoints = list(zip(xValues, yValues))
