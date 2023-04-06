@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import math
 
 
 def middlePoint(x1, x2):
@@ -16,5 +17,13 @@ for i, row in df.iterrows():
     middleX[i] = middlePoint(row['vx11'], row['vx12'])
     middleY[i] = middlePoint(row['vy11'], row['vy12'])
 
-print(middleX)
+#print(middleX)
 
+for i in range(1,20):
+    pointToCompare = (middleX[i],middleY[i])
+    minDistance = math.inf
+    closestSet = None
+    for index, row in df.iterrows():
+        xValues = [float(row[f'x{i}']) for i in range(1, 21)]
+        yValues = [float(row[f'y{i}']) for i in range(1, 21)]
+        currentPoints = list(zip(xValues, yValues))
