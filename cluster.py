@@ -29,6 +29,6 @@ for i in range(1,20):
     closestSet = None
 
     for index, row in df2.iterrows():
-        xValues = [float(row[f'x{k}']) for k in range(0, 10)]
-        yValues = [float(row[f'y{k}']) for k in range(0, 10)]
+        xValues = [float(row[f'x{k}']) for k in range(0, 20)]
+        yValues = [float(row[f'y{k}']) for k in range(0, 20)]
         currentPoints = list(zip(xValues, yValues))
