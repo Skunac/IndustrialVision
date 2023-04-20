@@ -26,11 +26,8 @@ values = [compte_main_gauche, compte_main_droite]
 
 fig, ax = plt.subplots()
 
-ax.barh(names, values)
+ax.bar(names, values, color=['#FF6347','#007FFF'])
+ax.set_title("Répartition des blessures par main")
 
-for i, value in enumerate(values):
-    ax.text(value + 1, i, str(value))
-xmin, xmax = ax.get_xlim()
-ax.set_xlim(xmin, 1.1*xmax)
 
 plt.show()
