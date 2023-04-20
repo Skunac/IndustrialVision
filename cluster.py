@@ -15,17 +15,19 @@ def middlePoint(x1, x2):
 def closestVertice(vertices, point):
     min_distance = math.inf
     nearest_vertice = None
+    nearest_point = None
 
     for coordinates in vertices:
          distance = math.sqrt((point[0] - coordinates[0]) ** 2 + (point[1] - coordinates[1]) ** 2)
          if distance < min_distance:
             min_distance = distance
             nearest_vertice =coordinates
+            nearest_point = point
 
-    return  nearest_vertice
+    return  point
 
 
-df = pd.read_csv('data_link_output_img.csv', usecols=['name',
+df = pd.read_csv('test3.csv', usecols=['name',
                  'vx11', 'vx12', 'vy11', 'vy12'], sep=',')
 
 middleX = [0] * 50
@@ -38,16 +40,16 @@ for i, row in df.iterrows():
 
 
 
-df2 = pd.read_csv("data_link_output_img_xy_only.csv", usecols=all, sep=',')
+df2 = pd.read_csv("test2.csv", usecols=all, sep=',')
 
 
-for i in range(0,50):
-    pointToCompare = (middleX[i],middleY[i])
-
+for i in range(0,1):
     for index, row in df2.iterrows():
+        pointToCompare = (middleX[i],middleY[i])
         xValues = [float(row[f'x{k}']) for k in range(0, 20)]
         yValues = [float(row[f'y{k}']) for k in range(0, 20)]
         currentPoints = list(zip(xValues, yValues))
 
     key = find_key_by_value(injury_points,pointToCompare)
-    print( "key : ",key," Injury : ",closestVertice(currentPoints,pointToCompare))  
+    print( "key : ",key," Injury : ",closestVertice(currentPoints,pointToCompare))
+
