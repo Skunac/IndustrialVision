@@ -28,8 +28,5 @@ fig, ax = plt.subplots()
 
 ax.bar(names, values, color=['#FF6347','#007FFF'], label=['Gauche', 'Droite'])
 ax.set_title("Répartition des blessures par main")
-ax.legend(["mains gauches"], loc='upper left')
-ax.legend(["mains droites"], loc='upper right')
 ax.legend(['Gauche', 'Droite'])
-
 plt.show()
